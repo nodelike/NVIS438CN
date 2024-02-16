@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle received serial data
     ipcRenderer.on('serial-data', (event, data) => {
         const values = data.split(',').map(item => item.trim());
-        console.log(values);
 
         updateStatusAndData(values);
     });
