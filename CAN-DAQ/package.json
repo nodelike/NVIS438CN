@@ -1,0 +1,61 @@
+{
+  "name": "425-daq",
+  "version": "1.0.0",
+  "description": "425-DAQ",
+  "main": "src/main.js",
+  "author": "NVIS",
+  "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "chart.js": "^4.4.0",
+    "electron": "^27.1.2",
+    "electron-builder": "^24.9.1",
+    "electron-packager": "^17.1.2",
+    "electron-rebuild": "^3.2.9",
+    "plotly.js": "^2.0.0",
+    "serialport": "^9.2.8"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "prebuildify-cross": "^5.0.0",
+    "serialport": "^9.2.8"
+  },
+  "build": {
+    "appId": "com.nvis.425-daq",
+    "productName": "425-DAQ",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "NVIS425-DAQ",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true
+    },
+    "asarUnpack": [
+      "node_modules/serialport/**"
+    ],
+    "npmRebuild": true,
+    "files": [
+      "**/*",
+      "!**/*.map",
+      "node_modules/chart.js/**/*"
+    ]
+  }
+}

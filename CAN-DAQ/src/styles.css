@@ -1,0 +1,167 @@
+/*
+    NVIS425-DAQ - styles.css
+
+    This CSS file contains styling rules for the NVIS425 Lead-Acid Battery Characteristics Training System Data Acquisition System user interface.
+
+    It includes:
+    - Styling for header section with system title and logo
+    - Layout and appearance of chart displays
+    - Design of data acquisition controls and system statistics
+    - Customization of port selection dropdown and download button
+    - Battery visualization styling
+
+    Author: Kishore Gunalan
+*/
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    color: black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.left-header {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-right: 2px solid #000;
+    margin-left: 50px;
+    height: 65px;
+}
+
+.right-header {
+width: 100%;
+text-align: center;
+}
+
+.right-header p{
+   margin: 0;
+   font-weight: bold;
+   margin-top: 15px;
+   font-size: 18px;
+}
+    
+
+#header-logo, #header-title, #header-company {
+font-size: 18px;
+font-weight: bold;
+flex: 1;
+}
+
+#header-logo {  
+height: 65px;   
+object-fit: contain;
+margin-left: -50px;
+}
+
+#header-title {
+flex-grow: 1;
+text-align: center;
+font-size: 22px;
+}
+
+#header-company {
+font-size: 16px;
+width: 280px;
+margin-left: -30px;
+margin-right: 10px;
+}
+
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1080px;
+    margin: 10px auto;
+}
+button {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #00988e;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-weight: bold;
+}
+
+button:hover {
+    color: black;
+    background-color: white;
+}
+
+.port-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    max-width: 450px;
+}
+
+.com-port-selector {
+    display: flex;
+    align-items: center;
+}
+
+.com-port-selector label {
+    font-size: 15px;
+}
+
+.com-port-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100px;
+    font-size: 14px;
+    margin-left: 5px;
+    padding: 5px 10px 5px 10px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.cols-container {
+    display: flex;
+    width: 100%;
+    margin-top: 45px;
+}
+
+.cols-container div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cols-container div h3{
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid black;
+}

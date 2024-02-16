@@ -1,0 +1,91 @@
+<!--
+    NVIS425-DAQ INDEX.HTML
+
+    This HTML file serves as the main user interface for the NVIS425 Lead-Acid Battery Characteristics Training System Data Acquisition System.
+
+    It includes:
+    - Header section displaying the system title and logo
+    - Main content area with multiple chart displays and data acquisition controls
+    - Right container with port selection, system statistics, and download button
+
+    External Dependencies:
+    - chart.js for chart visualization
+    - styles.css for styling
+    - renderer.js for handling data acquisition logic
+
+    Author: Kishore Gunalan
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NVIS438CN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <img id="header-logo" src="assets/logo.png" alt="Logo">
+        </div>
+        <div class="right-header">
+            <div id="header-title">CAN Bus Training System</div>
+        </div>
+    </header>
+    <div class="main-wrapper">
+        <div class="port-container">
+            <div class="com-port-selector">
+                <label for="comPorts">Select COM Port:</label>
+                <select id="comPorts">
+                    <!-- Options will be dynamically added here -->
+                </select>
+            </div>
+
+            <button class="refreshport" onclick="ipcRenderer.send('refresh-ports')">Refresh</button>
+            <button class="startButton" id="button0">Start DAQ</button>
+        </div>
+        <div class="cols-container">
+            <div class="node-col">
+                <h3>NODE</h3>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+            </div>
+
+            <div class="stat-col">
+                <h3>STATUS</h3>
+                <p>DISCONNECTED</p>
+                <p>DISCONNECTED</p>
+                <p>DISCONNECTED</p>
+                <p>DISCONNECTED</p>
+                <p>DISCONNECTED</p>
+                <p>DISCONNECTED</p>
+            </div>
+
+            <div class="data-col">
+                <h3>DATA</h3>
+                <p>NIL</p>
+                <p>NIL</p>
+                <p>NIL</p>
+                <p>NIL</p>
+                <p>NIL</p>
+                <p>NIL</p>
+            </div>
+
+            <div class="address-col">
+                <h3>ADDRESS</h3>
+                <p>0x101</p>
+                <p>0x102</p>
+                <p>0x103</p>
+                <p>0x104</p>
+                <p>0x105</p>
+                <p>0x106</p>
+            </div>
+        </div>
+    </div>    
+    <script src="renderer.js"></script>
+</body>
+ 
+</html>
