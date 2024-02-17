@@ -27,9 +27,11 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 1180,
     height: 800,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      devTools: true
     },
     icon: path.join(__dirname, 'assets/icon.ico')
   });
@@ -52,7 +54,22 @@ function createWindow () {
   ipcMain.on('refresh-ports', (event) => {
     refreshPorts();
   })
+
+  ipcMain.on('closeApp', () => {
+    win.close();
+  });
     
+  ipcMain.on('minimizeApp', () => {
+    win.minimize();
+  });
+
+  ipcMain.on('maximizeApp', () => {
+    if(win.isMaximized()){
+      win.restore();
+    } else {
+      win.maximize();
+    };
+  });
   
   // Event listener for 'start-daq' message from renderer process. On event, this starts reading the data.
   ipcMain.on('start-daq', (event, selectedPort) => {

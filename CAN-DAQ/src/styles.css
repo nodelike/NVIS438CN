@@ -13,6 +13,13 @@
     Author: Kishore Gunalan
 */
 
+:root {
+    --primary-color: #000;
+    --secondary-color: #0e0e0e;
+    --accent-color: #1d1d1d;
+    --border-color: #737373;
+    --font-color: #f1f1f1;
+}
 
 html, body {
     height: 100%;
@@ -20,32 +27,70 @@ html, body {
     display: flex;
     flex-direction: column;
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+}
+
+.titlebar {
+    background: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    -webkit-app-region: drag;
+}
+.titlebar p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.titleBarBtns{
+    margin-right: 5px;
+    display: flex;
+    margin-right: 8px;
+    align-items: center;
+    height: 100%;
+}
+
+.titleBarBtns svg {
+    padding: 0 8px;
+    stroke: white; /* or any color you prefer */
+    stroke-width: 2; /* adjust as needed */
+    width: 16px;
+    height: 100%;
+    transition: 0.2s ease;
+}
+
+.titleBarBtns svg:hover {
+    background: white;
+    stroke: black; /* or any color you prefer */
+    cursor: pointer;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
-    color: black;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .left-header {
-    background: white;
     display: flex;
     align-items: center;
     padding: 10px;
-    border-right: 2px solid #000;
+    border-right: 2px solid var(--border-color);
     margin-left: 50px;
     height: 65px;
 }
 
 .right-header {
-width: 100%;
-text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .right-header p{
@@ -85,18 +130,19 @@ margin-right: 10px;
 .main-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     max-width: 1080px;
     margin: 10px auto;
+    height: 100%;
 }
 button {
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     background-color: #00988e;
-    color: white;
+    color: var(--font-color);
     cursor: pointer;
     transition: 0.2s ease;
     font-weight: bold;
@@ -113,10 +159,10 @@ button:hover {
     align-items: center;
     padding: 20px 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: #fff;
+    background-color: var(--secondary-color);
     border-radius: 10px;
     justify-content: space-evenly;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     max-width: 450px;
 }
 
@@ -136,32 +182,60 @@ button:hover {
     font-size: 14px;
     margin-left: 5px;
     padding: 5px 10px 5px 10px;
-    background-color: #fff;
-    border: 1px solid black;
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
     border-radius: 0.25rem;
-    color: #000;
+    color: var(--font-color);
     cursor: pointer;
 }
 
-.cols-container {
-    display: flex;
+.node-container {
     width: 100%;
-    margin-top: 45px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.cols-container div{
+.node {
+    background: var(--secondary-color);
     width: 100%;
+    max-width: 335px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin: 10px 0px;
+}
+
+.node span {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
-.cols-container div h3{
+.node label {
+    font-weight: bold;
+}
+
+.node h3{
     margin: 0;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-    border-bottom: 1px solid black;
+}
+
+.nodeHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--primary-color);
+    margin: 0;
+    padding: 15px 35px;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.nodeHead span {
+    height: 8px;
+    width: 8px;
+    background-color: green;
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 0;
 }

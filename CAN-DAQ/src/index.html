@@ -23,6 +23,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="titlebar">
+        <p>NVIS438CN</p>
+        <div class="titleBarBtns" style="-webkit-app-region: no-drag;">
+            <svg id="minimizeBtn" class="minimize-button" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            
+            <svg id="maximizeBtn" class="maximize-button" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4H20V20H4V4Z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>            
+            
+            <svg id="closeBtn" class="close-button" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>      
+        </div>
+    </div>
     <header>
         <div class="left-header">
             <img id="header-logo" src="assets/logo.png" alt="Logo">
@@ -43,45 +60,121 @@
             <button class="refreshport" onclick="ipcRenderer.send('refresh-ports')">Refresh</button>
             <button class="startButton" id="button0">Start DAQ</button>
         </div>
-        <div class="cols-container">
-            <div class="node-col">
-                <h3>NODE</h3>
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
+        <div class="node-container">
+            <div class="node">
+                <div class="nodeHead">
+                    <span class="statDot"></span>
+                    <h3>NODE 1</h3>
+                </div>
+                <span>
+                    <label for="status">Status: </label>
+                    <p>DISCONNECTED</p>
+                </span>
+                <span>
+                    <label for="status">Data: </label>
+                    <p>NA</p>
+                </span>
+                <span>
+                    <label for="status">Address: </label>
+                    <p>0x101</p>
+                </span>
             </div>
 
-            <div class="stat-col">
-                <h3>STATUS</h3>
-                <p>DISCONNECTED</p>
-                <p>DISCONNECTED</p>
-                <p>DISCONNECTED</p>
-                <p>DISCONNECTED</p>
-                <p>DISCONNECTED</p>
-                <p>DISCONNECTED</p>
+            <div class="node">
+                <div class="nodeHead">
+                    <span class="statDot"></span>
+                    <h3>NODE 2</h3>
+                </div>
+                <span>
+                    <label for="status">Status: </label>
+                    <p>DISCONNECTED</p>
+                </span>
+                <span>
+                    <label for="status">Data: </label>
+                    <p>NA</p>
+                </span>
+                <span>
+                    <label for="status">Address: </label>
+                    <p>0x102</p>
+                </span>
             </div>
 
-            <div class="data-col">
-                <h3>DATA</h3>
-                <p>NIL</p>
-                <p>NIL</p>
-                <p>NIL</p>
-                <p>NIL</p>
-                <p>NIL</p>
-                <p>NIL</p>
+
+            <div class="node">
+                <div class="nodeHead">
+                    <span class="statDot"></span>
+                    <h3>NODE 3</h3>
+                </div>
+                <span>
+                    <label for="status">Status: </label>
+                    <p>DISCONNECTED</p>
+                </span>
+                <span>
+                    <label for="status">Data: </label>
+                    <p>NA</p>
+                </span>
+                <span>
+                    <label for="status">Address: </label>
+                    <p>0x103</p>
+                </span>
             </div>
 
-            <div class="address-col">
-                <h3>ADDRESS</h3>
-                <p>0x101</p>
-                <p>0x102</p>
-                <p>0x103</p>
-                <p>0x104</p>
-                <p>0x105</p>
-                <p>0x106</p>
+            <div class="node">
+                <div class="nodeHead">
+                    <span class="statDot"></span>
+                    <h3>NODE 4</h3>
+                </div>
+                <span>
+                    <label for="status">Status: </label>
+                    <p>DISCONNECTED</p>
+                </span>
+                <span>
+                    <label for="status">Data: </label>
+                    <p>NA</p>
+                </span>
+                <span>
+                    <label for="status">Address: </label>
+                    <p>0x104</p>
+                </span>
+            </div>
+
+            <div class="node">
+                <div class="nodeHead">
+                    <span class="statDot"></span>
+                    <h3>NODE 5</h3>
+                </div>
+                <span>
+                    <label for="status">Status: </label>
+                    <p>DISCONNECTED</p>
+                </span>
+                <span>
+                    <label for="status">Data: </label>
+                    <p>NA</p>
+                </span>
+                <span>
+                    <label for="status">Address: </label>
+                    <p>0x105</p>
+                </span>
+            </div>
+
+
+            <div class="node">
+                <div class="nodeHead">
+                    <span class="statDot"></span>
+                    <h3>NODE 6</h3>
+                </div>
+                <span>
+                    <label for="status">Status: </label>
+                    <p>DISCONNECTED</p>
+                </span>
+                <span>
+                    <label for="status">Data: </label>
+                    <p>NA</p>
+                </span>
+                <span>
+                    <label for="status">Address: </label>
+                    <p>0x106</p>
+                </span>
             </div>
         </div>
     </div>    
