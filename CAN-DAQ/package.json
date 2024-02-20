@@ -1,7 +1,7 @@
 {
-  "name": "425-daq",
+  "name": "can-daq",
   "version": "1.0.0",
-  "description": "425-DAQ",
+  "description": "CAN-DAQ",
   "main": "src/main.js",
   "author": "NVIS",
   "license": "UNLICENSED",
@@ -26,8 +26,8 @@
     "serialport": "^9.2.8"
   },
   "build": {
-    "appId": "com.nvis.425-daq",
-    "productName": "425-DAQ",
+    "appId": "com.nvis.can-daq",
+    "productName": "CAN-DAQ",
     "win": {
       "target": [
         {
@@ -38,13 +38,13 @@
           ]
         }
       ],
-      "icon": "icon.ico"
+      "icon": "src/assets/icon.ico"
     },
     "nsis": {
       "oneClick": false,
-      "installerIcon": "icon.ico",
-      "uninstallerIcon": "icon.ico",
-      "uninstallDisplayName": "NVIS425-DAQ",
+      "installerIcon": "src/assets/icon.ico",
+      "uninstallerIcon": "src/assets/icon.ico",
+      "uninstallDisplayName": "CAN-DAQ",
       "license": "license.md",
       "allowToChangeInstallationDirectory": true
     },
