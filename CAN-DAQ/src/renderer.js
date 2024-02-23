@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ipcRenderer.on('serial-data', (event, data) => {
         const values = data.split(',').map(item => item.trim());
+        console.log(values);
         updateStatusAndData(values);
     });
 
@@ -29,6 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function resetStatusAndData() {
+        const nodes = document.querySelectorAll('.node');
+        nodes.forEach((node) => {
+            // Resetting each node
+            const statusDot = node.getElementsByClassName('statDot')[0];
+            const statusElement = node.querySelectorAll('p')[0]; // First p element for Status
+            const dataElement = node.querySelectorAll('p')[1]; // Second p element for Data
+            const addressElement = node.querySelectorAll('p')[2]; // Third p element for Address
+    
+            if (statusElement && dataElement && addressElement) {
+                dataElement.textContent = 'NA';
+                statusDot.style.background = 'red';
+                statusElement.textContent = 'DISCONNECTED';
+                addressElement.textContent = 'NA';
+            } else {
+                console.error('One or more elements not found:', statusElement, dataElement, addressElement);
+            }
+        });
+    }
+
     function toggleButtonState() {
         const button = document.getElementById(`button0`);
         if (button.textContent === 'Start DAQ') {
@@ -36,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert("Data acquisition has stopped.");
             button.textContent = 'Start DAQ';
+            resetStatusAndData();
         }
     }
 
@@ -52,10 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
             // Check if all elements were found
             if (statusElement && dataElement && addressElement) {
-                // console.log(statusDot)
+                if (index == 4){
+                    dataElement.textContent = isConnected ? '0x00 ' + '0x00' + ' 0x00 ' + '0x00 ' + '0x00 ' + values[index + 6] : 'NA';
+                } else {
+                    dataElement.textContent = isConnected ? '0x00 ' + values[index + 6] + ' 0x00 ' + '0x00 ' + '0x00 ' + '0x00' : 'NA';
+                }
                 statusDot.style.background = isConnected ? 'green' : 'red';
                 statusElement.textContent = isConnected ? 'CONNECTED' : 'DISCONNECTED';
-                dataElement.textContent = isConnected ? '0x00 ' + values[index + 6] + ' 0x00 ' + '0x00 ' + '0x00 ' + '0x00' : 'NA';
                 addressElement.textContent = isConnected ? '0x10' + (index + 1) : 'NA';
             } else {
                 console.error('One or more elements not found:', statusElement, dataElement, addressElement);

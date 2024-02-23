@@ -84,7 +84,7 @@ function createWindow () {
           }
       });
   } else if (selectedPort) {
-      const port = new SerialPort(selectedPort, { baudRate: 9600 });
+      const port = new SerialPort(selectedPort, { baudRate: 115200 });
       const parser = port.pipe(new Readline({ delimiter: '\n' }));
 
       parser.on('data', (data) => {

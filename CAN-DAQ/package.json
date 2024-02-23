@@ -1,6 +1,6 @@
 {
   "name": "can-daq",
-  "version": "1.0.0",
+  "version": "0.8.6",
   "description": "CAN-DAQ",
   "main": "src/main.js",
   "author": "NVIS",
@@ -33,8 +33,7 @@
         {
           "target": "nsis",
           "arch": [
-            "x64",
-            "ia32"
+            "x64"
           ]
         }
       ],

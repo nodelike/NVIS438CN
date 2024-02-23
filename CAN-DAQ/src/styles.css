@@ -234,7 +234,7 @@ button:hover {
 .nodeHead span {
     height: 8px;
     width: 8px;
-    background-color: green;
+    background-color: red;
     border-radius: 50%;
     border: 1px solid white;
     padding: 0;
